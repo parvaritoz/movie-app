@@ -52,7 +52,7 @@ const MovieList = () => {
   {
     return (
       <div>
-        <h1 className="text-white mt-4 mb-4 text-3xl">What's Popular</h1>
+        <h1 className="text-white mt-4 mb-4 text-3xl">What is Popular</h1>
         <div className="flex flex-row overflow-scroll text-white">
           {movies.map((movie, dataKey) => (
             <MovieCard key={dataKey} {...movie} />
