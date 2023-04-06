@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import MovieCard from "./MovieCard";
-import { GetServerSideProps } from "next";
 
 {
   /** interface movieProps {
