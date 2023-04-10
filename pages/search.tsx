@@ -25,7 +25,7 @@ export default function SearchResultsPage(props: Props) {
   if (results.length === 0) {
     return (
       <div className="flex justify-center mt-10">
-        <p className="text-white text-2xl">No results found for "{query}"</p>
+        <p className="text-white text-2xl">No results found for '{query}'</p>
       </div>
     );
   }
