@@ -1,13 +1,15 @@
 import Link from "next/link";
-import React from "react";
 import { AiOutlineHome, AiOutlineGlobal } from "react-icons/ai";
+import Search from "./Search";
 
 export default function Navbar() {
   return (
-    <div className="flex justify-center items-center">
-      <div className="items-center justify-center w-64">
-        <p className="text-white justify-center flex text-3xl mt-2">Movies</p>
-        <div className="flex flex-row items-center justify-between mt-2">
+    <>
+      <div className="flex justify-center">
+        <p className="text-white text-3xl mt-2">Movies</p>
+      </div>
+      <div className="mr-5 ml-5 flex flex-col md:flex-row md:justify-between justify-center items-center mt-4">
+        <div className="flex flex-row items-center justify-between w-64 mt-2 md:mt-0">
           <div className="items-center flex flex-row">
             <AiOutlineHome size={20} style={{ color: "white" }} />
             <Link href={"/"}>
@@ -21,7 +23,10 @@ export default function Navbar() {
             </Link>
           </div>
         </div>
+        <div className="w-64 mt-2 md:mt-0">
+          <Search />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
