@@ -1,63 +1,35 @@
-import { useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
+import { Movie } from "../../utils/Type";
 
-{
-  /** interface movieProps {
-  data: {
-    imgpath: string;
-    name: string;
-    date: string;
-  }[];
+interface props {
+  topRated_movies: any;
+  popular_movies: any;
 }
 
-export const getStaticProps: GetServerSideProps = async () => {
-  const response = await fetch(
-    "https://api.themoviedb.org/3/movie/popular?api_key=d4b6eeaeee2a60922acbc3a48871ca17&language=en-US&page=1"
-  );
-  const data = await response.json();
-  console.log(data.results);
-
-  return {
-    props: {
-      data,
-    },
-  };
-};*/
-}
-
-const API_REQUEST =
-  "https://api.themoviedb.org/3/movie/popular?api_key=d4b6eeaeee2a60922acbc3a48871ca17&language=en-US&page=1";
-
-const MovieList = () => {
-  const [movies, setMovies] = useState([]);
-
-  const getingMovies = async () => {
-    fetch(API_REQUEST)
-      .then((response) => response.json())
-      .then((data) => {
-        setMovies(data.results);
-        console.log(data.results);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  useEffect(() => {
-    getingMovies();
-  }, []);
-
+const MovieLists = ({ popular_movies, topRated_movies }: props) => {
   {
     return (
-      <div>
-        <h1 className="text-white mt-4 mb-4 text-3xl">What is Popular</h1>
-        <div className="flex flex-row overflow-scroll text-white">
-          {movies.map((movie, dataKey) => (
-            <MovieCard key={dataKey} {...movie} />
-          ))}
+      <>
+        <div>
+          <h1 className="text-white mt-4 mb-4 text-3xl">What is Popular</h1>
+          <div className="flex flex-row overflow-scroll text-white">
+            {popular_movies.map((movies: any, key: string) => (
+              <MovieCard key={key} movie={movies} />
+            ))}
+          </div>
         </div>
-      </div>
+
+        <div>
+          <h1 className="text-white mt-4 mb-4 text-3xl">Top Rated</h1>
+          <div className="flex flex-row overflow-scroll text-white rounded-sm">
+            {topRated_movies.map((movies: any, key: string) => (
+              <MovieCard key={key} movie={movies} />
+            ))}
+          </div>
+        </div>
+      </>
     );
   }
 };
-export default MovieList;
+
+export default MovieLists;
