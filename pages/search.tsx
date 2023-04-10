@@ -41,7 +41,7 @@ export default function SearchResultsPage(props: Props) {
       <div>
         <div>
           <h1 className="text-white mt-4 mb-4 text-3xl">
-            Search Results for "{query}"
+            Search Results for '{query}'
           </h1>
           <div className="flex flex-row overflow-scroll text-white">
             {results.map((movie, key) => (
