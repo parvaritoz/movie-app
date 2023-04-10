@@ -22,7 +22,7 @@ export default function IndexPage() {
 
     useEffect(() => {
       fetchMovies();
-    }, [type]);
+    }, [fetchMovies]);
 
     return movies;
   }
