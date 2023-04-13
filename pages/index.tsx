@@ -39,12 +39,7 @@ export default function IndexPage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="mr-5 ml-5">
-        <MovieLists
-          popular_movies={popularMovies}
-          topRated_movies={topMovies}
-        />
-      </div>
+      <MovieLists popular_movies={popularMovies} topRated_movies={topMovies} />
     </>
   );
 }

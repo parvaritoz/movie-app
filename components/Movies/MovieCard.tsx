@@ -12,14 +12,14 @@ type MovieDetailsProps = {
 const MovieCard = ({ movie }: MovieDetailsProps) => {
   return (
     <>
-      <div className="flex flex-col md:flex-row h-full" key={movie.id}>
+      <div className="h-full" key={movie.id}>
         <Link
           href={{
             pathname: `/movie/${movie.id}`,
             query: movie, // the data
           }}
         >
-          <div className="w-[150px] h-[225px] md:w-[250px] md:h-[375px] relative mr-4">
+          <div className="w-[130px] h-[200px] md:w-[250px] md:h-[375px] relative">
             <div className="absolute z-0 hover:opacity-30">
               {movie.poster_path && (
                 <img

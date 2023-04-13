@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import MovieList from "../components/Genre/MovieList";
-import GenreCard from "../components/Genre/GenreButton";
+import GenreButton from "../components/Genre/GenreButton";
 
 export default function Discover() {
   const [genres, setGenres] = useState([] as any[]);
@@ -61,7 +61,7 @@ export default function Discover() {
         </Head>
         <div className="flex flex-row overflow-scroll text-white">
           {genres.map((genre, index: number) => (
-            <GenreCard
+            <GenreButton
               key={index}
               genre={genre}
               onClick={(text) => handleInput(text)}
