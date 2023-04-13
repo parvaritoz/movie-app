@@ -10,8 +10,8 @@ export default function GenreCard({ genre, onClick, pressed }: GenreProps) {
   return (
     <div className="flex flex-col hover:cursor-pointer mt-8 ">
       <button
-        className={`p-2 mx-1 rounded-2xl border border-white hover:bg-white text-white whitespace-nowrap hover:text-black ${
-          pressed ? "bg-white text-black" : "bg-gray-900"
+        className={`p-2 mx-1 rounded-2xl border border-white hover:bg-white whitespace-nowrap hover:text-black ${
+          pressed ? "bg-white text-black" : "bg-gray-900 text-white"
         }`}
         onClick={() => onClick(genre.id)}
         value={genre.name}
