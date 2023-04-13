@@ -1,6 +1,5 @@
 import { Movie } from "@/utils/Type";
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 const getImgULR = (path: string) => {
   return `https://www.themoviedb.org/t/p/w440_and_h660_face${path}`;
@@ -11,16 +10,6 @@ type MovieDetailsProps = {
 };
 
 const MovieCard = ({ movie }: MovieDetailsProps) => {
-  const router = useRouter();
-
-  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
-    console.log("Movie ID: ", movie.id);
-    console.log("Movie Title: ", movie.original_title);
-    console.log("Overview: ", movie.overview);
-    console.log("Date: ", movie.release_date);
-    // Add your code to handle the click event here
-  };
-
   return (
     <>
       <div className="flex flex-col md:flex-row h-full" key={movie.id}>
@@ -30,10 +19,7 @@ const MovieCard = ({ movie }: MovieDetailsProps) => {
             query: movie, // the data
           }}
         >
-          <div
-            className="w-[150px] h-[225px] md:w-[250px] md:h-[375px] relative mr-4"
-            onClick={handleClick}
-          >
+          <div className="w-[150px] h-[225px] md:w-[250px] md:h-[375px] relative mr-4">
             <div className="absolute z-0 hover:opacity-30">
               {movie.poster_path && (
                 <img
