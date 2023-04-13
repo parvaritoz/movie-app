@@ -24,7 +24,7 @@ export default function SearchResultsPage() {
     return (
       <div className="flex justify-center mt-10">
         <p className="text-white text-2xl">
-          No results found for `&apos;`{query}`&apos;`
+          No results found for &apos;{query}&apos;
         </p>
       </div>
     );
@@ -41,7 +41,7 @@ export default function SearchResultsPage() {
       <div>
         <div>
           <h1 className="text-white mt-4 mb-4 text-3xl">
-            Search Results for `&apos;`{query}`&apos;`
+            Search Results for &apos;{query}&apos;
           </h1>
           <div className="flex flex-row overflow-scroll text-white">
             {results.map((movie, key) => (
