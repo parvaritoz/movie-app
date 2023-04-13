@@ -1,13 +1,13 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import GenreList from "../components/Genre/MovieList";
-import GenreCard from "../components/Genre/GenreCard";
+import MovieList from "../components/Genre/MovieList";
+import GenreCard from "../components/Genre/GenreButton";
 
 export default function Discover() {
   const [genres, setGenres] = useState([] as any[]);
-  const [filter, setFilter] = useState([] as any[]);
+  const [filterMovies, setFilterMovies] = useState([] as any[]);
   const [movies, setMovies] = useState([] as any[]);
-  const [clickedText, setClickedText] = useState("");
+  const [categoriID, setCategoriID] = useState("");
 
   /**
    *
@@ -38,10 +38,16 @@ export default function Discover() {
     fetchMovies();
   }, []);
 
-  const handleInput = (text: string) => {
-    const filter = movies.filter((movie) => movie.genre_ids.includes(text));
-    setFilter(filter);
-    setClickedText(text.toString());
+  /**
+   *
+   * @param text Id jag få tillbaka
+   */
+  const handleInput = (categoriID: string) => {
+    const filterMovies = movies.filter((movie) =>
+      movie.genre_ids.includes(categoriID)
+    );
+    setFilterMovies(filterMovies);
+    setCategoriID(categoriID.toString());
   };
 
   {
@@ -54,31 +60,22 @@ export default function Discover() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <div className="flex flex-row overflow-scroll text-white">
-          {genres.map((genre, index: number) =>
-            genre.id === parseInt(clickedText) ? (
-              <GenreCard
-                key={index}
-                genre={genre}
-                onClick={(text) => handleInput(text)}
-                pressed={true}
-              />
-            ) : (
-              <GenreCard
-                key={index}
-                genre={genre}
-                onClick={(text) => handleInput(text)}
-                pressed={false}
-              />
-            )
-          )}
+          {genres.map((genre, index: number) => (
+            <GenreCard
+              key={index}
+              genre={genre}
+              onClick={(text) => handleInput(text)}
+              pressed={genre.id === parseInt(categoriID) ? true : false}
+            />
+          ))}
         </div>
 
-        {clickedText !== "" && filter && filter.length === 0 && (
+        {categoriID !== "" && filterMovies && filterMovies.length === 0 && (
           <p className="text-white flex justify-center items-center mt-5 text-lg">
             finns inte
           </p>
         )}
-        <GenreList genre={clickedText.length > 0 ? filter : movies} />
+        <MovieList genre={categoriID.length > 0 ? filterMovies : movies} />
       </>
     );
   }
