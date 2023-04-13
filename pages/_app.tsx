@@ -27,7 +27,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
     ((page) => {
       return (
         <>
-          <div className="mx-4 md:mx-6">
+          <div className="mx-4 md:mx-6 flex flex-col flex-start min-h-screen">
             <Navbar />
             {page}
             <Footer />
@@ -36,8 +36,6 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
       );
     });
   return (
-    <div className="bg-gray-900 min-h-screen">
-      {getLayout(<Component {...pageProps} />)}
-    </div>
+    <div className="bg-gray-900">{getLayout(<Component {...pageProps} />)}</div>
   );
 }
