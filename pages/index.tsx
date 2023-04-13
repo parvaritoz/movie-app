@@ -3,31 +3,32 @@ import { useState, useEffect } from "react";
 import MovieLists from "@/components/Movies/Movies";
 
 export default function IndexPage() {
+  const [movies, setMovies] = useState([]);
+  const [popularMovies, setPopularMovies] = useState([] as any[]);
+  const [topMovies, setTopMovies] = useState([] as any[]);
   /**
    * This function fetch the data from TMDB API
    * @param type poular or top_rated
    * @returns An array of objects
    */
-  function getMovies(type: string) {
-    const [movies, setMovies] = useState([]);
 
-    async function fetchMovies() {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/movie/${type}?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&language=en-US`
-      );
-      const data = await response.json();
-      setMovies(data.results);
-    }
+  async function fetchMovies() {
+    const response_popular = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/movie/popular?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&language=en-US`
+    );
 
-    useEffect(() => {
-      fetchMovies();
-    }, []);
-
-    return movies;
+    const response_topRated = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/movie/top_rated?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&language=en-US`
+    );
+    const data_popular = await response_popular.json();
+    const data_topRated = await response_topRated.json();
+    setPopularMovies(data_popular.results);
+    setTopMovies(data_topRated.results);
   }
 
-  const popular_movies = getMovies("popular");
-  const top_rated = getMovies("top_rated");
+  useEffect(() => {
+    fetchMovies();
+  }, []);
 
   return (
     <>
@@ -40,8 +41,8 @@ export default function IndexPage() {
 
       <div className="mr-5 ml-5">
         <MovieLists
-          popular_movies={popular_movies}
-          topRated_movies={top_rated}
+          popular_movies={popularMovies}
+          topRated_movies={topMovies}
         />
       </div>
     </>
