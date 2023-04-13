@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { useState, useEffect } from "react";
-import MovieLists from "@/components/Movies/MovieList";
-import { API_KEY, API_URL } from "../config/config";
+import MovieLists from "@/components/Movies/Movies";
 
 export default function IndexPage() {
   /**
@@ -9,12 +8,12 @@ export default function IndexPage() {
    * @param type poular or top_rated
    * @returns An array of objects
    */
-  function useMovies(type: string) {
+  function getMovies(type: string) {
     const [movies, setMovies] = useState([]);
 
     async function fetchMovies() {
       const response = await fetch(
-        `${API_URL}/movie/${type}?api_key=${API_KEY}&page=1`
+        `${process.env.NEXT_PUBLIC_API_URL}/movie/${type}?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&language=en-US`
       );
       const data = await response.json();
       setMovies(data.results);
@@ -26,9 +25,36 @@ export default function IndexPage() {
 
     return movies;
   }
+  /***const getMovies = async (genre: string) => {
+    //const [movies, setMovies] = useState([]);
+    try {
+      const response = await fetch(
+        `${API_URL}/movie/${genre}?api_key=${API_KEY}&page=1`
+      );
+      const data = await response.json();
 
-  const popular_movies = useMovies("popular");
-  const top_rated = useMovies("top_rated");
+      console.log(data.results);
+      return data.results;
+    } catch (err) {
+      console.error(err);
+      return [];
+    }
+
+    {
+      async function fetchMovies() {
+      const response = await fetch(
+        `${API_URL}/movie/${type}?api_key=${API_KEY}&page=1`
+      );
+      const data = await response.json();
+      setMovies(data.results);
+    }
+
+    }
+    useEffect(() => {
+      setMovies(await getMovies("popular"));
+    }, []);
+  };
+  
 
   /**
    * Fetching data: Top Ranked movies based on the data from TMDB API
@@ -45,6 +71,8 @@ export default function IndexPage() {
       });
   };*/
   }
+  const popular_movies = getMovies("popular");
+  const top_rated = getMovies("top_rated");
 
   return (
     <>
