@@ -25,52 +25,7 @@ export default function IndexPage() {
 
     return movies;
   }
-  /***const getMovies = async (genre: string) => {
-    //const [movies, setMovies] = useState([]);
-    try {
-      const response = await fetch(
-        `${API_URL}/movie/${genre}?api_key=${API_KEY}&page=1`
-      );
-      const data = await response.json();
 
-      console.log(data.results);
-      return data.results;
-    } catch (err) {
-      console.error(err);
-      return [];
-    }
-
-    {
-      async function fetchMovies() {
-      const response = await fetch(
-        `${API_URL}/movie/${type}?api_key=${API_KEY}&page=1`
-      );
-      const data = await response.json();
-      setMovies(data.results);
-    }
-
-    }
-    useEffect(() => {
-      setMovies(await getMovies("popular"));
-    }, []);
-  };
-  
-
-  /**
-   * Fetching data: Top Ranked movies based on the data from TMDB API
-   */
-  {
-    /** const fetching_topRatedMovies = () => {
-    fetch(API_REQUEST_TOP_RATED)
-      .then((response) => response.json())
-      .then((data) => {
-        setTopRatedMovies(data.results);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };*/
-  }
   const popular_movies = getMovies("popular");
   const top_rated = getMovies("top_rated");
 
@@ -91,19 +46,4 @@ export default function IndexPage() {
       </div>
     </>
   );
-}
-
-{
-  /** export const getServerSideProps: GetServerSideProps = async () => {
-  const popular_response = await fetch(API_REQUEST_POPULAR);
-  const topRated_respone = await fetch(API_REQUEST_TOP_RATED);
-
-  const popular_data = await popular_response.json();
-  const topRated_data = await topRated_respone.json();
-
-  return {
-    props: { popular_data, topRated_data },
-  };
-};
-*/
 }
