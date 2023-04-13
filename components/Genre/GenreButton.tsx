@@ -6,7 +6,7 @@ type GenreProps = {
   pressed: boolean;
 };
 
-export default function GenreCard({ genre, onClick, pressed }: GenreProps) {
+export default function GenreButton({ genre, onClick, pressed }: GenreProps) {
   return (
     <div className="flex flex-col hover:cursor-pointer mt-8 ">
       <button
