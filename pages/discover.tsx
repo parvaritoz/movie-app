@@ -72,7 +72,12 @@ export default function Discover() {
             )
           )}
         </div>
-        {filter.length === 0 && <p className="text-white">finns inte</p>}
+
+        {clickedText !== "" && filter && filter.length === 0 && (
+          <p className="text-white flex justify-center items-center mt-5 text-lg">
+            finns inte
+          </p>
+        )}
         <GenreList genre={clickedText.length > 0 ? filter : movies} />
       </>
     );
