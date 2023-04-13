@@ -9,6 +9,9 @@ export default function Discover() {
   const [movies, setMovies] = useState([] as any[]);
   const [clickedText, setClickedText] = useState("");
 
+  /**
+   *
+   */
   async function fetchMovies() {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/movie/popular?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&language=en-US`
@@ -69,7 +72,7 @@ export default function Discover() {
             )
           )}
         </div>
-        {!filter && <p className="text-white">finns inte</p>}
+        {filter.length === 0 && <p className="text-white">finns inte</p>}
         <GenreList genre={clickedText.length > 0 ? filter : movies} />
       </>
     );
