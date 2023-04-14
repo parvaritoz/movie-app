@@ -28,7 +28,7 @@ export default function SearchResultsPage() {
   if (results.length === 0) {
     return (
       <div className="flex justify-center mt-10">
-        <p className="text-white text-2xl">
+        <p className="text-white text-xl md:text-3xl">
           No results found for &apos;{query}&apos;
         </p>
       </div>
@@ -45,7 +45,7 @@ export default function SearchResultsPage() {
       </Head>
       <div>
         <div>
-          <h1 className="text-white mt-4 mb-4 text-3xl">
+          <h1 className="text-white mt-4 mb-4 text-xl md:text-3xl">
             Search Results for &apos;{query}&apos;
           </h1>
           <div className="flex flex-row overflow-scroll text-white">
