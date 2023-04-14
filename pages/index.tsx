@@ -2,16 +2,17 @@ import Head from "next/head";
 import { useState, useEffect } from "react";
 import Movies from "@/components/Movies/Movies";
 
+/**
+ * LandingPage
+ * @returns list of popular and top movies
+ */
 export default function IndexPage() {
-  const [movies, setMovies] = useState([]);
   const [popularMovies, setPopularMovies] = useState([] as any[]);
   const [topMovies, setTopMovies] = useState([] as any[]);
-  /**
-   * This function fetch the data from TMDB API
-   * @param type poular or top_rated
-   * @returns An array of objects
-   */
 
+  /**
+   * This function handles fetch for  popular and topRated movies
+   */
   async function fetchMovies() {
     const response_popular = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/movie/popular?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&language=en-US`
