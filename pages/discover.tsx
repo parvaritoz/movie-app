@@ -71,8 +71,8 @@ export default function Discover() {
         </div>
 
         {categoriID !== "" && filterMovies && filterMovies.length === 0 && (
-          <p className="text-white flex justify-center items-center mt-5 text-lg">
-            finns inte
+          <p className="text-white flex justify-center items-center mt-10 text-lg">
+            No movies within this Category
           </p>
         )}
         <MovieList genre={categoriID.length > 0 ? filterMovies : movies} />

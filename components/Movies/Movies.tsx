@@ -5,6 +5,11 @@ interface MovieListProps {
   popular_movies: any;
 }
 
+/**
+ * This handles list of movies.
+ * @param param0 json
+ * @returns List of movies for landingpage
+ */
 const Movies = ({ popular_movies, topRated_movies }: MovieListProps) => {
   {
     return (

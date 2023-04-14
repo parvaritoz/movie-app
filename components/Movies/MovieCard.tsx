@@ -9,6 +9,11 @@ type MovieDetailsProps = {
   movie: Movie;
 };
 
+/**
+ * This function handles the movie card that contain title, release date and poster for each movie.
+ * @param param0 Movie
+ * @returns A movie card
+ */
 const MovieCard = ({ movie }: MovieDetailsProps) => {
   return (
     <>
@@ -19,7 +24,7 @@ const MovieCard = ({ movie }: MovieDetailsProps) => {
             query: movie, // the data
           }}
         >
-          <div className="w-[130px] h-[200px] md:w-[250px] md:h-[375px] relative">
+          <div className="w-[130px] h-[200px] md:w-[250px] md:h-[375px] relative mr-4">
             <div className="absolute z-0 hover:opacity-30">
               {movie.poster_path && (
                 <img

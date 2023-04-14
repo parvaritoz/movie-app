@@ -3,6 +3,10 @@ import { useRouter } from "next/router";
 import { AiOutlineSearch } from "react-icons/ai";
 import Link from "next/link";
 
+/**
+ * This function handles the search component
+ * @returns a search component
+ */
 export default function Search() {
   const [query, setQuery] = useState("");
   const router = useRouter();

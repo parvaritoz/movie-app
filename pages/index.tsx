@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useState, useEffect } from "react";
-import MovieLists from "@/components/Movies/Movies";
+import Movies from "@/components/Movies/Movies";
 
 export default function IndexPage() {
   const [movies, setMovies] = useState([]);
@@ -39,7 +39,7 @@ export default function IndexPage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <MovieLists popular_movies={popularMovies} topRated_movies={topMovies} />
+      <Movies popular_movies={popularMovies} topRated_movies={topMovies} />
     </>
   );
 }

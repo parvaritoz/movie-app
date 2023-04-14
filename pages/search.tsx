@@ -5,6 +5,10 @@ import { useEffect, useState } from "react";
 import { searchMovies } from "../utils/api";
 import { Movie } from "../utils/Type";
 
+/**
+ * This function handles the search page
+ * @returns List of movie for a searched movie
+ */
 export default function SearchResultsPage() {
   const router = useRouter();
   const { query } = router.query;
@@ -20,6 +24,7 @@ export default function SearchResultsPage() {
     search();
   }, [query]);
 
+  //Chech for no result when searching for a movie
   if (results.length === 0) {
     return (
       <div className="flex justify-center mt-10">

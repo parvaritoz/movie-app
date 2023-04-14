@@ -2,6 +2,10 @@ import Link from "next/link";
 import { AiOutlineHome, AiOutlineGlobal } from "react-icons/ai";
 import Search from "./Search";
 
+/**
+ * This function handles the navbar component which contains home, discover and search bar
+ * @returns Navbar
+ */
 export default function Navbar() {
   return (
     <>

@@ -6,6 +6,11 @@ type GenreProps = {
   pressed: boolean;
 };
 
+/**
+ * This function handles the genre button in discover page
+ * @param param0 genre, onclick and boolean for checking status when pressed.
+ * @returns Button for each genre
+ */
 export default function GenreButton({ genre, onClick, pressed }: GenreProps) {
   return (
     <div className="flex flex-col hover:cursor-pointer mt-8 ">

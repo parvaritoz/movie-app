@@ -4,6 +4,11 @@ interface GenreProps {
   genre: any;
 }
 
+/**
+ * This function handles list of movies for discover page
+ * @param param0 json for genre
+ * @returns List of movies
+ */
 export default function MovieList({ genre }: GenreProps) {
   return (
     <>
