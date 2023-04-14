@@ -1,15 +1,11 @@
 import { useRouter } from "next/router";
 import { Movie } from "../../utils/Type";
 
-type MovieDetailsProps = {
-  movie: Movie;
-};
-
-const getImgULR = (path: string) => {
-  return `https://www.themoviedb.org/t/p/w440_and_h660_face${path}`;
-};
-
-export default function MovieDetails({ movie }: MovieDetailsProps) {
+/**
+ * This function handles detail page for each movie
+ * @returns Detail page for each move
+ */
+export default function MovieDetails() {
   const router = useRouter();
   const data = router.query;
   console.log(data);
@@ -33,7 +29,7 @@ export default function MovieDetails({ movie }: MovieDetailsProps) {
             className="rounded-lg"
           />
         </div>
-        <div className="flex flex-col ml-4 justify-center">
+        <div className="flex flex-col md:ml-4 justify-center">
           <div className="flex flex-row justify-between items-center mt-5 md:mt-0">
             <p className="text-white text-lg flex justify-end">
               Releasse Date: {data.release_date}

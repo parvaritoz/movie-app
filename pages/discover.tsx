@@ -72,7 +72,7 @@ export default function Discover() {
 
         {categoriID !== "" && filterMovies && filterMovies.length === 0 && (
           <p className="text-white flex justify-center items-center mt-10 text-lg">
-            No movies within this Category
+            No movies within this category
           </p>
         )}
         <MovieList genre={categoriID.length > 0 ? filterMovies : movies} />
