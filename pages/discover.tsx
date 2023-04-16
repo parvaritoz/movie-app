@@ -59,7 +59,7 @@ export default function Discover() {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <div className="flex flex-row overflow-scroll text-white">
+        <div className="flex flex-row overflow-scroll scrollbar-hide text-white">
           {genres.map((genre, index: number) => (
             <GenreButton
               key={index}
