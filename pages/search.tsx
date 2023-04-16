@@ -48,7 +48,7 @@ export default function SearchResultsPage() {
           <h1 className="text-white mt-4 mb-4 text-xl md:text-3xl">
             Search Results for &apos;{query}&apos;
           </h1>
-          <div className="grid grid-cols-2 gap-2 flex-row md:flex overflow-scroll scrollbar-hide mt-4">
+          <div className="grid grid-cols-2 gap-2 flex-row md:flex overflow-scroll mt-4">
             {results.map((movie, key) => (
               <MovieCard key={key} movie={movie} />
             ))}
